@@ -1,0 +1,82 @@
+{\rtf1\ansi\ansicpg1252\cocoartf2822
+\cocoatextscaling0\cocoaplatform0{\fonttbl\f0\fswiss\fcharset0 Helvetica;}
+{\colortbl;\red255\green255\blue255;}
+{\*\expandedcolortbl;;}
+\paperw11900\paperh16840\margl1440\margr1440\vieww11520\viewh8400\viewkind0
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+
+\f0\fs24 \cf0 <!DOCTYPE html>\
+<html lang="de">\
+<head>\
+  <meta charset="UTF-8">\
+  <title>CoArt Gutschein</title>\
+  <style>\
+    body \{\
+      margin: 0;\
+      padding: 0;\
+      background: #eee;\
+      font-family: Arial, sans-serif;\
+    \}\
+    .page \{\
+      width: 794px;   /* A4 Breite */\
+      height: 1123px; /* A4 H\'f6he */\
+      margin: 20px auto;\
+      background: #fff;\
+      padding: 40px;\
+      box-shadow: 0 0 10px rgba(0,0,0,0.3);\
+    \}\
+    h1 \{\
+      text-align: center;\
+      margin-bottom: 40px;\
+    \}\
+    .field \{\
+      margin: 20px 0;\
+      font-size: 18px;\
+    \}\
+    .highlight \{\
+      font-weight: bold;\
+      font-size: 20px;\
+    \}\
+    button \{\
+      display: block;\
+      margin: 40px auto;\
+      padding: 12px 24px;\
+      background: #EF5E5E;\
+      border: none;\
+      border-radius: 6px;\
+      color: white;\
+      font-size: 16px;\
+      cursor: pointer;\
+    \}\
+    @media print \{\
+      button \{ display: none; \}\
+      body \{ background: #fff; \}\
+      .page \{ box-shadow: none; margin: 0; \}\
+    \}\
+  </style>\
+</head>\
+<body>\
+  <div class="page">\
+    <h1>\uc0\u55356 \u57256  Dein Gutschein von CoArt</h1>\
+    <div class="field" id="nameText"></div>\
+    <div class="field" id="buyerNameText"></div>\
+    <div class="field highlight" id="amountText"></div>\
+    <div class="field" id="codeText"></div>\
+    <div class="field" id="dateText"></div>\
+    <div class="field" id="messageText"></div>\
+    <button onclick="window.print()">\uc0\u55356 \u57217  Gutschein speichern</button>\
+  </div>\
+\
+  <script>\
+    const params = new URLSearchParams(window.location.search);\
+\
+    document.getElementById("nameText").innerText = "Beschenkter: " + (params.get("name") || "");\
+    document.getElementById("buyerNameText").innerText = "Geschenkt von: " + (params.get("buyer") || "");\
+    document.getElementById("amountText").innerText = "Betrag: " + (params.get("amount") || "") + " \'80";\
+    document.getElementById("codeText").innerText = "Gutscheincode: " + (params.get("code") || "");\
+    document.getElementById("dateText").innerText = "G\'fcltig bis: " + (params.get("date") || "");\
+    document.getElementById("messageText").innerText = "Nachricht: " + (params.get("msg") || "");\
+  </script>\
+</body>\
+</html>\
+}
